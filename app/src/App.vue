@@ -1,28 +1,45 @@
 <template>
   <div id="app">
-    <img alt="Vue logo" src="./assets/logo.png">
-    <HelloWorld msg="Welcome to Your Vue.js App"/>
+    <keep-alive>
+       <router-view></router-view>
+    </keep-alive>
+    <!-- 底部导航 -->
+    <van-tabbar v-model="active"
+                >
+      <van-tabbar-item icon="home-o">
+        <router-link to='/'>首页</router-link>
+      </van-tabbar-item>
+      <van-tabbar-item icon="coupon-o">
+        <router-link to='/class'>分类</router-link>
+      </van-tabbar-item>
+      <van-tabbar-item icon="send-gift-o">
+        <router-link to='/buy'>值得买</router-link>
+      </van-tabbar-item>
+      <van-tabbar-item icon="shopping-cart-o">
+        <router-link to='/shopping'>购物车</router-link>
+      </van-tabbar-item>
+      <van-tabbar-item icon="manager-o">
+        <router-link to='/center'>个人</router-link>
+      </van-tabbar-item>
+    </van-tabbar>
   </div>
 </template>
 
 <script>
-import HelloWorld from './components/HelloWorld.vue'
 
 export default {
   name: 'App',
-  components: {
-    HelloWorld
-  }
+  data () {
+    return {
+      active: 0,
+    };
+  },
 }
 </script>
 
-<style>
+<style lang="less" rel="stylesheet/less" scoped>
 #app {
-  font-family: Avenir, Helvetica, Arial, sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  text-align: center;
-  color: #2c3e50;
-  margin-top: 60px;
+  width: 100%;
+  height: 100%;
 }
 </style>
