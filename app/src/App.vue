@@ -4,7 +4,7 @@
        <router-view></router-view>
     </keep-alive>
     <!-- 底部导航 -->
-    <van-tabbar v-model="active"
+    <van-tabbar v-model="active" v-show="isShowTabBar"
                 >
       <van-tabbar-item icon="home-o">
         <router-link to='/'>首页</router-link>
@@ -32,8 +32,15 @@ export default {
   data () {
     return {
       active: 0,
+      isShowTabBar:true
     };
   },
+  mounted () {
+    this.$store.dispatch('getHome')
+    this.$store.dispatch('getCateModule')
+    this.$store.dispatch('getCateNavDatas')
+    this.$store.dispatch('getNavCateLists')
+  }
 }
 </script>
 

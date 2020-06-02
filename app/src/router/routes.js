@@ -26,6 +26,14 @@ export default [
     path: '/center',
     component: ()=>import('../pages/center/center.vue')
   },
+  {
+    path: '/search',
+    component: ()=>import('../pages/search/search.vue')
+  },
+  {
+    path: '/list',
+    component: ()=>import('../pages/list/list.vue')
+  },
   // 重定向
   {
     path: '/',
